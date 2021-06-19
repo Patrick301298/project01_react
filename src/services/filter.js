@@ -15,6 +15,7 @@ export function applyFilter(list, filter) {
 }
 export function search(list, query) {
   let q = query.trim().toLowerCase();
+
   return list.filter(({ text }) => stringInclues(text.toLowerCase(), q));
 }
 export function getOptions() {

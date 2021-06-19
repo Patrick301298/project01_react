@@ -3,7 +3,7 @@ import enhance from "../hoc/wrapInputBox";
 
 function InputBox(props) {
   const { value, handleChange, handleKeyUp } = props;
-
+  console.log("props", props);
   return (
     <div>
       <h1>InPutBox</h1>

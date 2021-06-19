@@ -11,18 +11,19 @@ class StateProvider extends Component {
       query: "",
       mode: MODE_CREATE,
       filter: FILTER_ALL,
-      list: getAll,
+      list: getAll(),
     };
   }
+
   render() {
     let children = wrapChildrenWith(this.props.children, {
       data: this.state,
       actions: objectWithOnly(this, [
-        ("addNew",
+        "addNew",
         "changeFilter",
         "changeStatus",
         "changeMode",
-        "setSearchQuery"),
+        "setSearchQuery",
       ]),
     });
     return <div>{children}</div>;
@@ -32,7 +33,7 @@ class StateProvider extends Component {
     this.setState({ list: updateList });
   }
   changeFilter(filter) {
-    this.setState(filter);
+    this.setState({ filter });
   }
   changeStatus(itemId, completed) {
     const updateList = updateStatus(this.state.list, itemId, completed);
